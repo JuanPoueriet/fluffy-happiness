@@ -1,0 +1,18 @@
+<header>
+    <div class="centered_div">
+        <div class="logo-container">
+            <h1>
+                Sarah <span>Design</span>
+            </h1>
+        </div>
+        <nav mat-tab-nav-bar [backgroundColor]="background" animationDuration="300ms">
+            <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.path" routerLinkActive
+                #rla="routerLinkActive" [active]="rla.isActive">
+                {{link.label}}
+            </a>
+        </nav>
+        <button class="menu-icon" mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+</header>

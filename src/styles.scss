@@ -1,1 +1,80 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$app-primary: mat.define-palette(mat.$indigo-palette);
+$app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$app-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$app-theme: mat.define-light-theme((color: (primary: $app-primary,
+        accent: $app-accent,
+        warn: $app-warn,
+      )));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($app-theme);
+
 /* You can add global styles to this file, and also import other style files */
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  --mat-tab-header-active-label-text-color: #CCA770 !important;
+  --mdc-tab-indicator-active-indicator-color: #CCA770 !important;
+  --mat-tab-header-active-focus-indicator-color: #CCA770 !important;
+  --mat-tab-header-active-ripple-color: #f0d4a9 !important;
+  --mat-tab-header-inactive-ripple-color: #f0d4a9 !important;
+  --mat-tab-header-inactive-label-text-color: #ffffff !important;
+  --mat-tab-header-active-hover-label-text-color: #ffffff !important;
+  --mat-tab-header-active-focus-label-text-color: #CCA770 !important;
+  --mat-tab-header-inactive-focus-label-text-color: #ffffff !important;
+  --mat-tab-header-inactive-hover-label-text-color: #ffffff !important;
+  --mat-tab-header-active-hover-indicator-color: #CCA770 !important;
+  user-select: none;
+
+  // --mdc-tab-indicator-active-indicator-height: 2px;
+  // --mdc-tab-indicator-active-indicator-shape: 0;
+  // --mdc-secondary-navigation-tab-container-height: 48px;
+
+  --mdc-icon-button-icon-color: #ffffff !important;
+  --mat-mdc-button-persistent-ripple-color: #000000 !important;
+  --mat-mdc-button-ripple-color: #ffffff1a !important;
+
+
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #21201F;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  padding-top: 48px;
+}
+
+@media (max-width: 820px){
+  body {
+    padding-top: 60px;
+  }
+}
+
+p {
+  color: #ffffff !important;
+}
